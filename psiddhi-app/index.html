@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>psiddhi-app</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Metabase Embed Script -->
+    <script defer src="https://fictional-trout-97qp5jvp9rpqfx459-3000.app.github.dev/app/embed.js"></script>
+    
+    <!-- Metabase Config -->
+    <script>
+      function defineMetabaseConfig(config) {
+        window.metabaseConfig = config;
+      }
+
+      defineMetabaseConfig({
+        "theme": {
+          "preset": "light"
+        },
+        "isGuest": true,
+        "instanceUrl": "https://fictional-trout-97qp5jvp9rpqfx459-3000.app.github.dev"
+      });
+    </script>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
