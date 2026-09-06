@@ -1,3 +1,5 @@
 psiddhi-app/.env
 psiddhi-backend/.env
 psiddhi-app/coverage/
+psiddhi-backend/node_modules/
+psiddhi-app/node_modules/
