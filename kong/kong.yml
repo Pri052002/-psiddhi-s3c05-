@@ -1,0 +1,61 @@
+_format_version: "3.0"
+
+services:
+  - name: backend-service
+    url: http://host.docker.internal:4000
+
+routes:
+  - name: leader-route
+    service: backend-service
+    paths:
+      - /api/embed-token/leader
+    strip_path: false
+    plugins:
+      - name: key-auth
+      - name: acl
+        config:
+          allow:
+            - leader-group
+
+  - name: manager-route
+    service: backend-service
+    paths:
+      - /api/embed-token/manager
+    strip_path: false
+    plugins:
+      - name: key-auth
+      - name: acl
+        config:
+          allow:
+            - manager-group
+
+  - name: projectlead-route
+    service: backend-service
+    paths:
+      - /api/embed-token/projectlead
+    strip_path: false
+    plugins:
+      - name: key-auth
+      - name: acl
+        config:
+          allow:
+            - projectlead-group
+
+consumers:
+  - username: leader-user
+    keyauth_credentials:
+      - key: leader-secret-key-2026
+    acls:
+      - group: leader-group
+
+  - username: manager-user
+    keyauth_credentials:
+      - key: manager-secret-key-2026
+    acls:
+      - group: manager-group
+
+  - username: projectlead-user
+    keyauth_credentials:
+      - key: projectlead-secret-key-2026
+    acls:
+      - group: projectlead-group
